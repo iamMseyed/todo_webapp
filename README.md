@@ -11,4 +11,4 @@
 - Spring Data repositories handle abstracting data persistence layer.
 - Delivers a web application for managing persistent customizable todo lists.
 
-_If you want to test this code, please edit application.properties file accordingly. Create MySQL database, and add database credentials via environment variables of the IDE_
+_Please edit application.properties file accordingly (available within the project). Create MySQL database (or configure any other), and add database credentials via environment variables of the IDE to get this project working._
