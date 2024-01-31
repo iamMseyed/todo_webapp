@@ -10,3 +10,5 @@
 - Supports CRUD operations - create, read, update, delete todo entries.
 - Spring Data repositories handle abstracting data persistence layer.
 - Delivers a web application for managing persistent customizable todo lists.
+
+_If you want to test this code, please edit application.properties file accordingly. Create MySQL database, and add database credentials via environment variables of the IDE_
