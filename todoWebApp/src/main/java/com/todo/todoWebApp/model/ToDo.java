@@ -31,8 +31,7 @@ public class ToDo {
     private LocalDate date;
 	
 	@Column
-	@Nonnull
-	private String status;
+	private boolean status;
 	
 	public ToDo() {
 		
@@ -62,11 +61,11 @@ public class ToDo {
 		this.date = date;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 
