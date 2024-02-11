@@ -37,7 +37,7 @@
 
         <h1 class="p-3"> ToDo Item List</h1>
 
-        <form:form>
+
 
             <table class="table table-bordered">
             	<tr>
@@ -50,19 +50,29 @@
             		<th>Delete</th>
             	</tr>
 
+<%--				don't consider when data is null--%>
             	<c:forEach var="todo" items="${list}">
                     <tr>
                 		<td>${todo.id}</td>
                 		<td>${todo.title}</td>
                 		<td>${todo.date}</td>
-                		<td>${todo.status}</td>
-                		<td><button type="button" class="btn btn-success">
-                		    <a href="/updateToDoStatus/${todo.id}">Mark Complete</a>
-                		</button></td>
-                		<td><button type="button" class="btn btn-primary">
+						<td>${todo.status ? 'Completed' : 'Incomplete'}</td>
+						<td>
+							<button type="button" class="btn btn-success" ${todo.status == true ? 'disabled="disabled"' : ''}
+									onclick="${todo.status == true ? 'return false' : ''}">
+								<a href="/updateToDoStatus/${todo.id}" onclick="${todo.status == true ? 'return false' : ''}">
+										${todo.status == true ? 'Completed' : 'Mark Complete'}
+								</a>
+							</button>
+						</td>
+
+
+						<td><button type="button" class="btn btn-primary">
                 		    <a href="/editToDoItem/${todo.id}">Edit</a>
                 		</button></td>
-                		<td><button type="button" class="btn btn-danger">
+
+
+						<td><button type="button" class="btn btn-danger">
                 			<a href="/deleteToDoItem/${todo.id}">Delete</a>
                 		</button></td>
                 	</tr>
@@ -70,8 +80,7 @@
             	</c:forEach>
 
             </table>
-
-        </form:form>
+<%--		when table is empty, let user add the todo item--%>
 
        <div class="text-center">
 	        <button type="button" class="btn btn-primary">
