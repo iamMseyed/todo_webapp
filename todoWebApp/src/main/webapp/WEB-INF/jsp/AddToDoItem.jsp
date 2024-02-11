@@ -27,6 +27,7 @@
 
         <h1 class="p-3"> Add a ToDo Item </h1>
 
+        <%--@elvariable id="todo" type=""--%>
         <form:form action="/saveToDoItem" method="post" modelAttribute="todo">
 
             <div class="row">
@@ -53,9 +54,13 @@
             	<div class="form-group col-md-12">
             		<label class="col-md-3" for="status">Status</label>
             		<div class="col-md-6">
-            			<form:input type="text" path="status" id="status"
-            				class="form-control input-sm" value="Incomplete" />
-            		</div>
+						<form:select path="status" id="status" class="form-control input-sm">
+							<form:option value="false">Incomplete</form:option>
+							<form:option value="true" disabled="true">Completed</form:option>
+
+						</form:select>
+
+					</div>
             	</div>
             </div>
 
