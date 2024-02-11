@@ -24,22 +24,23 @@ public class ToDoService {
 	
 	public ToDo getToDoItemById(Long id) {
 		return repo.findById(id).get();
+
 	}
 	
 	public boolean updateStatus(Long id) {
 		ToDo todo = getToDoItemById(id);
-		todo.setStatus("Completed");
+		todo.setStatus(true);
 		
 		return saveOrUpdateToDoItem(todo);
 	}
 	
 	public boolean saveOrUpdateToDoItem(ToDo todo) {
 		ToDo updatedObj = repo.save(todo);
-		
+
 		if (getToDoItemById(updatedObj.getId()) != null) {
 			return true;
 		}
-		
+
 		return false;
 	}
 	
