@@ -1,5 +1,5 @@
 <h1> To-Do Web app</h1>
-<h2>Using Spring Boot for the backend API and MySQL data access.</h2>
+<h2>A web application leveraging Spring Boot for the backend API and MySQL for data management.</h2>
 
 <h3> Key Features:</h3>
 
