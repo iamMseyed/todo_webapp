@@ -1,5 +1,5 @@
 <h1> To-Do Web app</h1>
-<h2>A web application leveraging Spring Boot for the backend API and MySQL for data management.</h2>
+<h2>A user-friendly task management tool designed to help individuals organize their daily activities efficiently. Users can easily add, edit, and delete tasks, ensuring their todo list remains up-to-date.</h2>
 
 <h3> Key Features:</h3>
 
