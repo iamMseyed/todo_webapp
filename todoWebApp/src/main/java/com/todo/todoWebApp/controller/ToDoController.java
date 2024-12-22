@@ -18,7 +18,7 @@ public class ToDoController {
 	@Autowired
 	private ToDoService service;
 
-	@GetMapping({"/", "viewToDoList"})
+	@GetMapping({"/", "view-todo-list"})
 	public String viewAllToDoItems(Model model, @ModelAttribute("message") String message) {
 		model.addAttribute("list", service.getAllToDoItems());
 		model.addAttribute("message", message);
@@ -26,7 +26,7 @@ public class ToDoController {
 		return "ViewToDoList";
 	}
 
-	@GetMapping("/updateToDoStatus/{id}")
+	@GetMapping("/update-todo-status/{id}")
 	public String updateToDoStatus(@PathVariable Long id, RedirectAttributes redirectAttributes) {
 		if (service.updateStatus(id)) {
 			redirectAttributes.addFlashAttribute("message", "Update Success");
@@ -37,14 +37,14 @@ public class ToDoController {
 		return "redirect:/viewToDoList";
 	}
 
-	@GetMapping("/addToDoItem")
+	@GetMapping("/add-todo-item")
 	public String addToDoItem(Model model) {
 		model.addAttribute("todo", new ToDo());
 		
 		return "AddToDoItem";
 	}
 
-	@PostMapping("/saveToDoItem")
+	@PostMapping("/save-todo-item")
 	public String saveToDoItem(ToDo todo, RedirectAttributes redirectAttributes) {
 		if(service.saveOrUpdateToDoItem(todo)) {
 			redirectAttributes.addFlashAttribute("message", "Save Success");
@@ -55,14 +55,14 @@ public class ToDoController {
 		return "redirect:/addToDoItem";
 	}
 	
-	@GetMapping("/editToDoItem/{id}")
+	@GetMapping("/edit-todo-item/{id}")
 	public String editToDoItem(@PathVariable Long id, Model model) {
 		model.addAttribute("todo", service.getToDoItemById(id));
 		
 		return "EditToDoItem";
 	}
 
-	@PostMapping("/editSaveToDoItem")
+	@PostMapping("/edit-save-todo-item")
 	public String editSaveToDoItem(ToDo todo, RedirectAttributes redirectAttributes) {
 		if(service.saveOrUpdateToDoItem(todo)) {
 			redirectAttributes.addFlashAttribute("message", "Edit Success");
@@ -73,7 +73,7 @@ public class ToDoController {
 		return "redirect:/editToDoItem/" + todo.getId();
 	}
 	
-	@GetMapping("/deleteToDoItem/{id}")
+	@GetMapping("/delete-todo-item/{id}")
 	public String deleteToDoItem(@PathVariable Long id, RedirectAttributes redirectAttributes) {
 		if (service.deleteToDoItem(id)) {
 			redirectAttributes.addFlashAttribute("message", "Delete Success");
